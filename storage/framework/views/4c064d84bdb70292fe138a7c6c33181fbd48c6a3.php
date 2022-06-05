@@ -32,7 +32,7 @@
               <tr>
                 <th scope="row"><?php echo e($index + $datas->firstItem()); ?></th>
                 <td><?php echo e($row->guruagenda->guru); ?></td>
-                <td><?php echo e($row->guruagenda->mapel_id); ?></td>
+                <td><?php echo e($row->mapel); ?></td>
                 <td><?php echo e($row->materi); ?></td>
                 <td><?php echo e($row->jammulai); ?></td>
                 <td><?php echo e($row->jamselesai); ?></td>

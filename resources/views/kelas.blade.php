@@ -23,7 +23,7 @@
               <tr>
                 <th scope="row">{{$index + $data->firstItem()}}</th>
                 <td>{{$row->kelas}}</td>
-                <td>{{$row->walikelas}}</td>
+                <td>{{$row->gurukelas->guru}}</td>
                 <td class="d-flex">
                   <form action="/deletekelas/{{$row->id}}" method="POST">
                     @csrf

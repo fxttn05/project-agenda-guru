@@ -23,7 +23,7 @@
               <tr>
                 <th scope="row"><?php echo e($index + $data->firstItem()); ?></th>
                 <td><?php echo e($row->kelas); ?></td>
-                <td><?php echo e($row->walikelas); ?></td>
+                <td><?php echo e($row->gurukelas->guru); ?></td>
                 <td class="d-flex">
                   <form action="/deletekelas/<?php echo e($row->id); ?>" method="POST">
                     <?php echo csrf_field(); ?>

@@ -8,7 +8,13 @@ use Illuminate\Http\Request;
 class AgendaController extends Controller
 {
     public function agenda(){
-        $datas = Agenda::with('guruagenda','kelasagenda')->paginate(5);
+        $datas = Agenda::select('agendas.*', 'gurus.*', 'kelas.*', 'mapels.*')
+		->leftJoin('gurus', 'agendas.guru_id', 'gurus.id')
+		->leftJoin('kelas', 'kelas.id', 'agendas.kelas_id')
+		->leftJoin('mapels', 'mapels.id', 'gurus.mapel_id')
+		->paginate(5);
+
+        // dd($datas[0]);
         
         return view('agenda',[
             'title' => 'Data Agenda',

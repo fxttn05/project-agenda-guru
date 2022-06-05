@@ -32,7 +32,7 @@
               <tr>
                 <th scope="row">{{$index + $datas->firstItem()}}</th>
                 <td>{{$row->guruagenda->guru}}</td>
-                <td>{{$row->guruagenda->mapel_id}}</td>
+                <td>{{$row->mapel}}</td>
                 <td>{{$row->materi}}</td>
                 <td>{{$row->jammulai}}</td>
                 <td>{{$row->jamselesai}}</td>
