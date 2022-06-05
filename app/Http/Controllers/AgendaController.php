@@ -13,8 +13,6 @@ class AgendaController extends Controller
 		->leftJoin('kelas', 'kelas.id', 'agendas.kelas_id')
 		->leftJoin('mapels', 'mapels.id', 'gurus.mapel_id')
 		->paginate(5);
-
-        // dd($datas[0]);
         
         return view('agenda',[
             'title' => 'Data Agenda',
