@@ -69,6 +69,8 @@
                         <a class="collapse-item" href="/agenda">Agenda</a>
                         <a class="collapse-item" href="/guru">Guru</a>
                         <a class="collapse-item" href="/kelas">Kelas</a>
+                        <a class="collapse-item" href="/mapel">Mapel</a>
+                        
                         <div class="collapse-divider"></div>
                         <h6 class="collapse-header">Other:</h6>
                         <a class="collapse-item" href="404.html">Register user</a>

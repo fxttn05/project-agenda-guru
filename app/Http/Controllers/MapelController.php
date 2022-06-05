@@ -29,7 +29,7 @@ class MapelController extends Controller
 
     public function tampilan($id){
         $data = Mapel::find($id);
-        return view('editdatakelas', compact('data'), ["title" => "Edit Data Mapel"]);
+        return view('editdatamapel', compact('data'), ["title" => "Edit Data Mapel"]);
     }
 
     public function update(Request $request, $id){
