@@ -5,6 +5,7 @@ use App\Models\Kelas;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\KelasController;
+use App\Http\Controllers\MapelController;
 use App\Http\Controllers\AgendaController;
 
 /*
@@ -57,3 +58,13 @@ Route::put('/updateagenda/{id}', [AgendaController::class, 'update'])->name('upd
 
 Route::delete('/deleteagenda/{id}', [AgendaController::class, 'destroy'])->name('deleteagenda');
 
+//mapel
+Route::get('/mapel', [MapelController::class, 'mapel'])->name('mapel');
+
+Route::get('/tambahmapel', [MapelController::class, 'create'])->name('tambahmapel');
+Route::post('/insertmapel', [MapelController::class, 'store'])->name('insertmapel');
+
+Route::get('/editmapel/{id}', [MapelController::class, 'tampilan'])->name('editmapel');
+Route::put('/updatemapel/{id}', [MapelController::class, 'update'])->name('updatemapel');
+
+Route::delete('/deletemapel/{id}', [MapelController::class, 'destroy'])->name('deletemapel');

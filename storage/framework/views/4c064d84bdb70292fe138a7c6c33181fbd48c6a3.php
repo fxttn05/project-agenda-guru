@@ -31,13 +31,13 @@
               <?php $__currentLoopData = $datas; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $row): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
               <tr>
                 <th scope="row"><?php echo e($index + $datas->firstItem()); ?></th>
-                <td><?php echo e($guru[$index]->namaguru); ?></td>
-                <td><?php echo e($guru[$index]->mapel); ?></td>
+                <td><?php echo e($guruagenda[$index]->guru); ?></td>
+                <td><?php echo e($guruagenda[$index]->mapel); ?></td>
                 <td><?php echo e($row->materi); ?></td>
                 <td><?php echo e($row->jammulai); ?></td>
                 <td><?php echo e($row->jamselesai); ?></td>
                 <td><?php echo e($row->absensiswa); ?></td>
-                <td><?php echo e($row->kelas); ?></td>
+                <td><?php echo e($kelasagenda[$index]->kelas); ?></td>
                 <td><?php echo e($row->modebelajar); ?></td>
                 <td><?php echo e($row->link); ?></td>
                 <td>

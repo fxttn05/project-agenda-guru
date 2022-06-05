@@ -8,7 +8,13 @@ use Illuminate\Http\Request;
 class GuruController extends Controller
 {
     public function guru(){
-        $data = Guru::paginate(5) ;
+        $datas = Guru::paginate(5) ;
+
+        $guruagenda = [];
+        foreach ($datas as $data) {
+            $guruagenda[] = $data->guruagenda;
+        }
+
         return view('guru', compact('data'), ["title" => "Data Guru"]);
     }
 

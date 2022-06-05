@@ -9,18 +9,20 @@ class AgendaController extends Controller
 {
     public function agenda(){
         $datas = Agenda::paginate(5);
-        $linkedagenda = [];
-        foreach ($datas as  $data) {
-            $linkedagenda[] = $data->linkedagenda;
-        }
-        $kelasagenda =[];
+
+        $guruagenda = [];
         foreach ($datas as $data) {
-            $kelasagenda[] = $data->kelasagenda;
+            $guruagenda[] = $data->guruagenda;
+        }
+
+        $kelasagenda =[];
+        foreach ($datas as $data2) {
+            $kelasagenda[] = $data2->kelasagenda;
         }
         return view('agenda',[
             'title' => 'Data Agenda',
             'datas' => $datas,
-            'linkedagenda' => $linkedagenda,
+            'guruagenda' => $guruagenda,
             'kelasagenda' => $kelasagenda
         ]);
     }

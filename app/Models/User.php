@@ -43,6 +43,6 @@ class User extends Authenticatable
     ];
 
     public function guruuser(){
-        return $this->hasMany(Guru::class);
+        return $this->hasOne(Guru::class);
     }
 }

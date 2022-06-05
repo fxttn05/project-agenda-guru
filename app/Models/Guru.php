@@ -10,8 +10,8 @@ class Guru extends Model
     use HasFactory;
     protected $guarded = ['id'];
 
-    public function linkedguru(){
-        return $this->hasOne(Linked::class);
+    public function agendaguru(){
+        return $this->hasMany(Agenda::class);
     }
 
     public function kelasguru(){
@@ -21,4 +21,9 @@ class Guru extends Model
     public function userguru(){
         return $this->belongsTo(User::class);
     }
+
+    public function mapelguru(){
+        return $this->belongsTo(Mapel::class);
+    }
+
 }

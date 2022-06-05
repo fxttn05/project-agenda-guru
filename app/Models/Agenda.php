@@ -9,10 +9,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Agenda extends Model
 {
     use HasFactory;
-    protected $guarded = ['id'];
+    protected $guarded = [];
 
-    public function linkedagenda(){
-        return $this->belongsTo(Linked::class);
+    public function guruagenda(){
+        return $this->belongsTo(Guru::class);
     }
 
     public function kelasagenda(){

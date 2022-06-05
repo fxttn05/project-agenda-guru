@@ -31,13 +31,13 @@
               @foreach($datas as $index => $row)
               <tr>
                 <th scope="row">{{$index + $datas->firstItem()}}</th>
-                <td>{{$guru[$index]->namaguru}}</td>
-                <td>{{$guru[$index]->mapel}}</td>
+                <td>{{$guruagenda[$index]->guru}}</td>
+                <td>{{$guruagenda[$index]->mapel}}</td>
                 <td>{{$row->materi}}</td>
                 <td>{{$row->jammulai}}</td>
                 <td>{{$row->jamselesai}}</td>
                 <td>{{$row->absensiswa}}</td>
-                <td>{{$row->kelas}}</td>
+                <td>{{$kelasagenda[$index]->kelas}}</td>
                 <td>{{$row->modebelajar}}</td>
                 <td>{{$row->link}}</td>
                 <td>

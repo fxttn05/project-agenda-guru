@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('kelas', function (Blueprint $table) {
             $table->id();
             $table->string('kelas');
-            $table->foreignId('guru_id'); // ngambil data namaguru buat walikelas
+            $table->foreignId('guru_id'); // ngambil data guru buat walikelas
             $table->timestamps();
         });
     }

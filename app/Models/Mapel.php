@@ -10,7 +10,7 @@ class Mapel extends Model
     use HasFactory;
     protected $guarded = ['id'];
 
-    public function linked(){
-        return $this->hasMany(Kelas::class);
+    public function gurumapel(){
+        return $this->hasMany(Guru::class);
     }
 }
