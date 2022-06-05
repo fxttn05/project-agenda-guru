@@ -12,10 +12,10 @@ class Agenda extends Model
     protected $guarded = [];
 
     public function guruagenda(){
-        return $this->belongsTo(Guru::class);
+        return $this->belongsTo(Guru::class, 'guru_id', 'id');
     }
 
     public function kelasagenda(){
-        return $this->belongsTo(Kelas::class);
+        return $this->belongsTo(Kelas::class, 'kelas_id', 'id');
     }
 }

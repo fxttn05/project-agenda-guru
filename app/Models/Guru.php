@@ -19,11 +19,11 @@ class Guru extends Model
     }
 
     public function userguru(){
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
     public function mapelguru(){
-        return $this->belongsTo(Mapel::class);
+        return $this->belongsTo(Mapel::class, 'mapel_id', 'id');
     }
 
 }

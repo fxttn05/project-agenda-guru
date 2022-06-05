@@ -14,7 +14,6 @@
                 <th scope="col">NIK Guru</th>
                 <th scope="col">MaPel</th>
                 <th scope="col">Username</th>
-                <th scope="col">Email</th>
                 <th scope="col">Password</th>
                 <th scope="col">Action</th>
               </tr>
@@ -26,12 +25,11 @@
               <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $row): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
               <tr>
                 <th scope="row"><?php echo e($index + $data->firstItem()); ?></th>
-                <td><?php echo e($row->namaguru); ?></td>
-                <td><?php echo e($row->nikguru); ?></td>
-                <td><?php echo e($row->mapel); ?></td>
-                <td><?php echo e($row->name); ?></td>
-                <td><?php echo e($row->email); ?></td>
-                <td><?php echo e($row->password); ?></td>
+                <td><?php echo e($row->guru); ?></td>
+                <td><?php echo e($row->nik); ?></td>
+                <td><?php echo e($row->mapelguru->mapel); ?></td>
+                <td><?php echo e($row->userguru->email); ?></td>
+                <td><?php echo e($row->userguru->password); ?></td>
                 <td class="d-flex">
                   <form action="/deleteguru/<?php echo e($row->id); ?>" method="POST">
                     <?php echo csrf_field(); ?>

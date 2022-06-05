@@ -31,13 +31,13 @@
               <?php $__currentLoopData = $datas; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $row): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
               <tr>
                 <th scope="row"><?php echo e($index + $datas->firstItem()); ?></th>
-                <td><?php echo e($guruagenda[$index]->guru); ?></td>
-                <td><?php echo e($guruagenda[$index]->mapel); ?></td>
+                <td><?php echo e($row->guruagenda->guru); ?></td>
+                <td><?php echo e($row->guruagenda->mapel_id); ?></td>
                 <td><?php echo e($row->materi); ?></td>
                 <td><?php echo e($row->jammulai); ?></td>
                 <td><?php echo e($row->jamselesai); ?></td>
                 <td><?php echo e($row->absensiswa); ?></td>
-                <td><?php echo e($kelasagenda[$index]->kelas); ?></td>
+                <td><?php echo e($row->kelasagenda->kelas); ?></td>
                 <td><?php echo e($row->modebelajar); ?></td>
                 <td><?php echo e($row->link); ?></td>
                 <td>
@@ -50,7 +50,7 @@
                     <?php echo method_field('delete'); ?>
                     <button type="submit" class="btn btn-danger mb-2">Delete</button>
                     </form>
-                  <a href="/editagenda/<?php echo e($row->id); ?>" type="button" class="btn btn-primary">Edit</a>
+                  <a href="/editagenda/<?php echo e($row->id); ?>" type="button"><img src="https://img.icons8.com/material-sharp/16/undefined/edit--v2.png"/></a>
                 </td>
               </tr>
               <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

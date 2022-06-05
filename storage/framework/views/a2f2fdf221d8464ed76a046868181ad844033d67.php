@@ -4,7 +4,7 @@
 <div class="row justify-content-center">
     <div class="card col-9 mt-3 rounded-3">
         <div class="card-body">
-            <h1 class="fw-bolder">Insert Guru</h1>
+            <h1 class="fw-bolder">Insert Agenda Sekolah</h1>
             <form method="POST" action="<?php echo e(route('insertagenda')); ?>" enctype="multipart/form-data">
                 <?php echo csrf_field(); ?>
                 <div class="mb-3">

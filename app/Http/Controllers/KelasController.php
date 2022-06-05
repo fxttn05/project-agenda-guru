@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 class KelasController extends Controller
 {
     public function kelas(){
-        $data = Kelas::paginate(5) ;
+        $data = Kelas::with('gurukelas')->paginate(5) ;
+        
         return view('kelas', compact('data'), ["title" => "Data Kelas"]);
     }
 

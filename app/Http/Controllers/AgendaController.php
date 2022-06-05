@@ -8,22 +8,11 @@ use Illuminate\Http\Request;
 class AgendaController extends Controller
 {
     public function agenda(){
-        $datas = Agenda::paginate(5);
-
-        $guruagenda = [];
-        foreach ($datas as $data) {
-            $guruagenda[] = $data->guruagenda;
-        }
-
-        $kelasagenda =[];
-        foreach ($datas as $data2) {
-            $kelasagenda[] = $data2->kelasagenda;
-        }
+        $datas = Agenda::with('guruagenda','kelasagenda')->paginate(5);
+        
         return view('agenda',[
             'title' => 'Data Agenda',
             'datas' => $datas,
-            'guruagenda' => $guruagenda,
-            'kelasagenda' => $kelasagenda
         ]);
     }
 

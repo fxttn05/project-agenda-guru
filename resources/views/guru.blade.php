@@ -14,7 +14,6 @@
                 <th scope="col">NIK Guru</th>
                 <th scope="col">MaPel</th>
                 <th scope="col">Username</th>
-                <th scope="col">Email</th>
                 <th scope="col">Password</th>
                 <th scope="col">Action</th>
               </tr>
@@ -26,12 +25,11 @@
               @foreach($data as $index => $row)
               <tr>
                 <th scope="row">{{$index + $data->firstItem()}}</th>
-                <td>{{$row->namaguru}}</td>
-                <td>{{$row->nikguru}}</td>
-                <td>{{$row->mapel}}</td>
-                <td>{{$row->name}}</td>
-                <td>{{$row->email}}</td>
-                <td>{{$row->password}}</td>
+                <td>{{$row->guru}}</td>
+                <td>{{$row->nik}}</td>
+                <td>{{$row->mapelguru->mapel}}</td>
+                <td>{{$row->userguru->email}}</td>
+                <td>{{$row->userguru->password}}</td>
                 <td class="d-flex">
                   <form action="/deleteguru/{{$row->id}}" method="POST">
                     @csrf

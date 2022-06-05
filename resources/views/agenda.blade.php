@@ -31,13 +31,13 @@
               @foreach($datas as $index => $row)
               <tr>
                 <th scope="row">{{$index + $datas->firstItem()}}</th>
-                <td>{{$guruagenda[$index]->guru}}</td>
-                <td>{{$guruagenda[$index]->mapel}}</td>
+                <td>{{$row->guruagenda->guru}}</td>
+                <td>{{$row->guruagenda->mapel_id}}</td>
                 <td>{{$row->materi}}</td>
                 <td>{{$row->jammulai}}</td>
                 <td>{{$row->jamselesai}}</td>
                 <td>{{$row->absensiswa}}</td>
-                <td>{{$kelasagenda[$index]->kelas}}</td>
+                <td>{{$row->kelasagenda->kelas}}</td>
                 <td>{{$row->modebelajar}}</td>
                 <td>{{$row->link}}</td>
                 <td>
@@ -50,7 +50,7 @@
                     @method('delete')
                     <button type="submit" class="btn btn-danger mb-2">Delete</button>
                     </form>
-                  <a href="/editagenda/{{$row->id}}" type="button" class="btn btn-primary">Edit</a>
+                  <a href="/editagenda/{{$row->id}}" type="button"><img src="https://img.icons8.com/material-sharp/16/undefined/edit--v2.png"/></a>
                 </td>
               </tr>
               @endforeach
