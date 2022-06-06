@@ -85,31 +85,13 @@ unset($__errorArgs, $__bag); ?>
                     </div>
                 </div>
 
-                <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Absensi (Jumlah siswa tidak hadir per sesi)</label>
-                    <input type="number" name="absensiswa" class="form-control" id="exampleInputEmail1"
-                        aria-describedby="emailHelp">
-                    <?php $__errorArgs = ['absensiswa'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?>
-                    <div class="text-danger">
-                        <?php echo e($message); ?>
-
-                    </div>
-                    <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>
-                </div>
-
+                
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Kelas</label>
                     <select class="form-select" name="kelas_id">
                         <option selected>Select Kelas</option>
                         <?php $__currentLoopData = $datakelas; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data3): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <option value="<?php echo e($data3->id); ?>"><?php echo e($data3->kelas); ?></option>
+                        <option value="<?php echo e($data3->id); ?>"><?php echo e($data3->kelas); ?></option>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </select>
                     <?php $__errorArgs = ['kelas'];
@@ -126,7 +108,7 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
                 </div>
-
+                
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Mode Pembelajaran</label>
                     <select class="form-select" name="modebelajar">
@@ -144,7 +126,7 @@ unset($__errorArgs, $__bag); ?>
                         <p>*Opsional</p>
                     </div>
                 </div>
-
+                
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Foto Dokumentasi</label>
                     <input type="file" name="foto" class="form-control" id="exampleInputEmail1"
@@ -164,6 +146,25 @@ endif;
 unset($__errorArgs, $__bag); ?>
                 </div>
 
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Absensi (Jumlah siswa tidak hadir per sesi)</label>
+                    <input type="number" name="absensiswa" class="form-control" id="exampleInputEmail1"
+                        aria-describedby="emailHelp">
+                    <?php $__errorArgs = ['absensiswa'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                    <div class="text-danger">
+                        <?php echo e($message); ?>
+
+                    </div>
+                    <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+                </div>
+                
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">keterangan</label>
                     <input type="text" name="keterangan" class="form-control" id="exampleInputEmail1"

@@ -81,26 +81,7 @@ unset($__errorArgs, $__bag); ?>
                     </div>
                 </div>
 
-                <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Absensi (Jumlah siswa tidak hadir per
-                        sesi)</label>
-                    <input type="number" name="absensiswa" value="<?php echo e($data->absensiswa); ?>" class="form-control"
-                        id="exampleInputEmail1" aria-describedby="emailHelp">
-                    <?php $__errorArgs = ['absensiswa'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?>
-                    <div class="text-danger">
-                        <?php echo e($message); ?>
-
-                    </div>
-                    <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>
-                </div>
-
+                
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Kelas</label>
                     <select class="form-select" name="kelas_id" value="">
@@ -159,7 +140,27 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
                 </div>
+                
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Absensi (Jumlah siswa tidak hadir per
+                        sesi)</label>
+                    <input type="number" name="absensiswa" value="<?php echo e($data->absensiswa); ?>" class="form-control"
+                        id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <?php $__errorArgs = ['absensiswa'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                    <div class="text-danger">
+                        <?php echo e($message); ?>
 
+                    </div>
+                    <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+                </div>
+                
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">keterangan</label>
                     <input type="text" name="keterangan" value="<?php echo e($data->keterangan); ?>" class="form-control"
