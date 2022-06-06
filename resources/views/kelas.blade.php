@@ -19,11 +19,11 @@
               @php
               $no = 1;
               @endphp
-              @foreach($data as $index => $row)
+              @foreach($datas as $index => $row)
               <tr>
-                <th scope="row">{{$index + $data->firstItem()}}</th>
+                <th scope="row">{{$index + $datas->firstItem()}}</th>
                 <td>{{$row->kelas}}</td>
-                <td>{{$row->gurukelas->guru}}</td>
+                <td>{{$row->guru}}</td>
                 <td class="d-flex">
                   <form action="/deletekelas/{{$row->id}}" method="POST">
                     @csrf
@@ -36,7 +36,7 @@
               @endforeach
             </tbody>
           </table>
-          {{ $data->links() }}
+          {{ $datas->links() }}
       </div>
     </div>
 </div>

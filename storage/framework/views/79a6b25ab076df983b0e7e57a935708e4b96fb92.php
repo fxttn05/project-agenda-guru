@@ -19,11 +19,11 @@
               <?php
               $no = 1;
               ?>
-              <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $row): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+              <?php $__currentLoopData = $datas; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $row): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
               <tr>
-                <th scope="row"><?php echo e($index + $data->firstItem()); ?></th>
+                <th scope="row"><?php echo e($index + $datas->firstItem()); ?></th>
                 <td><?php echo e($row->kelas); ?></td>
-                <td><?php echo e($row->gurukelas->guru); ?></td>
+                <td><?php echo e($row->guru); ?></td>
                 <td class="d-flex">
                   <form action="/deletekelas/<?php echo e($row->id); ?>" method="POST">
                     <?php echo csrf_field(); ?>
@@ -36,7 +36,7 @@
               <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </tbody>
           </table>
-          <?php echo e($data->links()); ?>
+          <?php echo e($datas->links()); ?>
 
       </div>
     </div>

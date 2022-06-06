@@ -24,7 +24,7 @@ class MapelController extends Controller
         ]);
     
         Mapel::create($request->all());
-        return redirect()->route('kelas');
+        return redirect()->route('mapel');
     }
 
     public function tampilan($id){

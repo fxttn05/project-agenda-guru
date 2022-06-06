@@ -19,8 +19,12 @@
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Wali Kelas</label>
-                    <input type="text" name="walikelas" value="{{$data->walikelas}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    @error('walikelas')
+                    <select class="form-select" name="guru_id" value="">
+                        @foreach ($dataguru as $item)
+                        <option value="{{$item->id}}" selected>{{$item->kelas}}</option>
+                        @endforeach
+                    </select>
+                    @error('guru')
                     <div class="text-danger">
                         {{$message}}
                     </div>

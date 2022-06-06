@@ -25,9 +25,14 @@ endif;
 unset($__errorArgs, $__bag); ?>
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Wali Kelas</label>
-                    <input type="text" name="walikelas"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    <?php $__errorArgs = ['walikelas'];
+                    <label for="exampleInputEmail1" class="form-label">Walikelas</label>
+                    <select class="form-select" name="guru_id">
+                        <option selected>Select Guru</option>
+                        <?php $__currentLoopData = $dataguru; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <option value="<?php echo e($data->id); ?>"><?php echo e($data->guru); ?></option>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    </select>
+                    <?php $__errorArgs = ['guru'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }

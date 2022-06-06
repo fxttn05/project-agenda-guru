@@ -15,6 +15,6 @@ class Kelas extends Model
     }
 
     public function gurukelas(){
-        return $this->belongsTo(Guru::class, 'guru_id', 'id');
+        return $this->belongsTo(Guru::class, 'guru_id', 'id');;
     }
 }
