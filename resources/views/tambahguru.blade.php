@@ -29,7 +29,7 @@
 
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Mata Pelajaran</label>
-                    <select class="form-select" name="mapel">
+                    <select class="form-select" name="mapel_id">
                       <option selected>Select Mata Pelajaran</option>
                       @foreach($datamapel as $data)
                       <option value="{{$data->id}}">{{$data->mapel}}</option>
@@ -55,7 +55,7 @@
                     </div>
                     @enderror
                 </div>
-                
+
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
