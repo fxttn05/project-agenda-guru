@@ -1,12 +1,12 @@
 @extends('template')
 
 @section('content')
-<div class="row justify-content-center">
-    <div class="card col-12 mt-3 rounded-3">
-      <div class="card-body">
+<div class="row justify-content-center ">
+    <div class="card col-12 mt-3 rounded-3 responsive">
+      <div class="card-body overflow-auto">
         <h2>Agenda Sekolah</h2>
         <a href="/tambahagenda" type="button" class="btn btn-success">Tambah Data</a>
-        <table class="table mt-3 mb-3">
+        <table class="table mt-3 mb-3 ">
             <thead>
               <tr>
                 <th scope="col">No</th>
@@ -28,9 +28,9 @@
               @php
               $no = 1;
               @endphp
-              @foreach($datas as $index => $row)
+              @foreach($data as $index => $row)
               <tr>
-                <th scope="row">{{$index + $datas->firstItem()}}</th>
+                <th scope="row">{{$index + $data->firstItem()}}</th>
                 <td>{{$row->guruagenda->guru}}</td>
                 <td>{{$row->mapel}}</td>
                 <td>{{$row->materi}}</td>
@@ -45,18 +45,14 @@
                 </td>
                 <td>{{$row->keterangan}}</td>
                 <td class="">
-                  <form action="/deleteagenda/{{$row->id}}" method="POST">
-                    @csrf
-                    @method('delete')
-                    <button type="submit" class="btn btn-danger mb-2">Delete</button>
-                    </form>
+                  <a href="/deleteagenda/{{$row->id}}" type="button"><img src="https://img.icons8.com/external-vitaliy-gorbachev-fill-vitaly-gorbachev/16/undefined/external-bin-mother-earth-day-vitaliy-gorbachev-fill-vitaly-gorbachev-1.png"/></a>
                   <a href="/editagenda/{{$row->id}}" type="button"><img src="https://img.icons8.com/material-sharp/16/undefined/edit--v2.png"/></a>
                 </td>
               </tr>
               @endforeach
             </tbody>
           </table>
-          {{ $datas->links() }}
+          {{ $data->links() }}
       </div>
     </div>
 </div>

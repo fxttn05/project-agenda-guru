@@ -7,6 +7,7 @@ use App\Http\Controllers\GuruController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\MapelController;
 use App\Http\Controllers\AgendaController;
+use App\Models\Mapel;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +23,8 @@ use App\Http\Controllers\AgendaController;
 Route::get('/', function () {
     $jumlahguru = Guru::count();
     $jumlahkelas = Kelas::count();
-    return view('index', ["title" => "Home"], compact('jumlahguru', 'jumlahkelas'));
+    $jumlahmapel = Mapel::count();
+    return view('index', ["title" => "Home"], compact('jumlahguru', 'jumlahkelas', 'jumlahmapel'));
 });
 
 // kelas
@@ -56,7 +58,7 @@ Route::post('/insertagenda', [AgendaController::class, 'store'])->name('insertag
 Route::get('/editagenda/{id}', [AgendaController::class, 'tampilan'])->name('editagenda');
 Route::put('/updateagenda/{id}', [AgendaController::class, 'update'])->name('updateagenda');
 
-Route::delete('/deleteagenda/{id}', [AgendaController::class, 'destroy'])->name('deleteagenda');
+Route::get('/deleteagenda/{id}', [AgendaController::class, 'destroy'])->name('deleteagenda');
 
 //mapel
 Route::get('/mapel', [MapelController::class, 'mapel'])->name('mapel');

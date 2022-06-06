@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Guru;
+use App\Models\Kelas;
+use App\Models\Mapel;
 use App\Models\Agenda;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class AgendaController extends Controller
 {
     public function agenda(){
-        $datas = Agenda::select('agendas.*', 'gurus.*', 'kelas.*', 'mapels.*')
+        $data = Agenda::select('agendas.*', 'gurus.*', 'kelas.*', 'mapels.*')
 		->leftJoin('gurus', 'agendas.guru_id', 'gurus.id')
 		->leftJoin('kelas', 'kelas.id', 'agendas.kelas_id')
 		->leftJoin('mapels', 'mapels.id', 'gurus.mapel_id')
@@ -16,24 +20,29 @@ class AgendaController extends Controller
         
         return view('agenda',[
             'title' => 'Data Agenda',
-            'datas' => $datas,
+            'data' => $data
         ]);
     }
 
     public function create(){
-        return view('tambahagenda', ["title" => "Add Data Agenda"]);
+        $dataguru = Guru::all();
+        $datamapel = Mapel::all();
+        $datakelas = Kelas::all();
+        return view('tambahagenda', [
+            "title" => "Add Data Agenda",
+            'dataguru' => $dataguru,
+            'datamapel' => $datamapel,
+            'datakelas' => $datakelas
+        ]);
     }
 
     public function store(Request $request){
         // dd($request->all());
 
         $this->validate($request, [
-            'namaguru' => 'required',
-            'mapel' => 'required',
             'materi' => 'required',
             'jammulai' => 'required',
             'jamselesai' => 'required',
-            'kelas' => 'required',
             'modebelajar' => 'required',
             
         ]);
@@ -49,12 +58,28 @@ class AgendaController extends Controller
     }
 
     public function tampilan($id){
-        $data = Agenda::find($id);
-        return view('editdataagenda', compact('data',), ["title" => "Edit Data Agenda"]);
+
+
+        $datas = Agenda::find($id);
+        $dataguru = Guru::all();
+        $datamapel = Mapel::all();
+        $datakelas = Kelas::all();
+        return view('editdataagenda', compact('datas', 'dataguru', 'datamapel', 'datakelas'), ["title" => "Edit Data Agenda"]);
     }
 
     public function update(Request $request, $id){
         $data = Agenda::find($id);
+        if ($request->hasFile('foto')) {
+            $destination = 'foto/'.$data->foto;
+            if(File::exists($destination)){
+                File::delete($destination);
+            }
+            $file = $request->file('dokumentasi');
+            $extension = $file->getClientOriginalName();
+            $filename = time().'.'.$extension;
+            $file->move('foto/', $filename);
+            $data->foto = $filename;
+        }
         $data->update($request->all());
         return redirect()->route('agenda');
     }

@@ -10,6 +10,7 @@ class Agenda extends Model
 {
     use HasFactory;
     protected $guarded = [];
+    public $timestamps = false;
 
     public function guruagenda(){
         return $this->belongsTo(Guru::class, 'guru_id', 'id');

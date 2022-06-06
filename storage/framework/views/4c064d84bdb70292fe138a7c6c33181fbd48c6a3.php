@@ -1,12 +1,12 @@
 
 
 <?php $__env->startSection('content'); ?>
-<div class="row justify-content-center">
-    <div class="card col-12 mt-3 rounded-3">
-      <div class="card-body">
+<div class="row justify-content-center ">
+    <div class="card col-12 mt-3 rounded-3 responsive">
+      <div class="card-body overflow-auto">
         <h2>Agenda Sekolah</h2>
         <a href="/tambahagenda" type="button" class="btn btn-success">Tambah Data</a>
-        <table class="table mt-3 mb-3">
+        <table class="table mt-3 mb-3 ">
             <thead>
               <tr>
                 <th scope="col">No</th>
@@ -28,9 +28,9 @@
               <?php
               $no = 1;
               ?>
-              <?php $__currentLoopData = $datas; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $row): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+              <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $row): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
               <tr>
-                <th scope="row"><?php echo e($index + $datas->firstItem()); ?></th>
+                <th scope="row"><?php echo e($index + $data->firstItem()); ?></th>
                 <td><?php echo e($row->guruagenda->guru); ?></td>
                 <td><?php echo e($row->mapel); ?></td>
                 <td><?php echo e($row->materi); ?></td>
@@ -45,18 +45,14 @@
                 </td>
                 <td><?php echo e($row->keterangan); ?></td>
                 <td class="">
-                  <form action="/deleteagenda/<?php echo e($row->id); ?>" method="POST">
-                    <?php echo csrf_field(); ?>
-                    <?php echo method_field('delete'); ?>
-                    <button type="submit" class="btn btn-danger mb-2">Delete</button>
-                    </form>
+                  <a href="/deleteagenda/<?php echo e($row->id); ?>" type="button"><img src="https://img.icons8.com/external-vitaliy-gorbachev-fill-vitaly-gorbachev/16/undefined/external-bin-mother-earth-day-vitaliy-gorbachev-fill-vitaly-gorbachev-1.png"/></a>
                   <a href="/editagenda/<?php echo e($row->id); ?>" type="button"><img src="https://img.icons8.com/material-sharp/16/undefined/edit--v2.png"/></a>
                 </td>
               </tr>
               <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </tbody>
           </table>
-          <?php echo e($datas->links()); ?>
+          <?php echo e($data->links()); ?>
 
       </div>
     </div>

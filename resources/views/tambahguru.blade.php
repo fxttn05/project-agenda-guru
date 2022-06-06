@@ -9,59 +9,53 @@
             @csrf
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Nama Guru</label>
-                    <input type="text" name="namaguru"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    @error('namaguru')
+                    <input type="text" name="guru"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    @error('guru')
                         <div class="text-danger">
                             {{$message}}
                         </div>
                     @enderror
                 </div>
+
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">NIK Guru</label>
-                    <input type="text" name="nikguru"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    @error('nikguru')
+                    <input type="text" name="nik"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    @error('nik')
                     <div class="text-danger">
                         {{$message}}
                     </div>
                     @enderror
                 </div>
+
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Mata Pelajaran</label>
                     <select class="form-select" name="mapel">
                       <option selected>Select Mata Pelajaran</option>
-                      <option value="1">RPL</option>
-                      <option value="2">MM</option>
-                      <option value="2">TKJ</option>
-                      <option value="2">BC</option>
+                      @foreach($datamapel as $data)
+                      <option value="{{$data->id}}">{{$data->mapel}}</option>
+                      @endforeach
+                      @error('nik')
+                        <div class="text-danger">
+                            {{$message}}
+                        </div>
+                    @enderror
                     </select>
-                  </div>
+                </div>
+
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Username</label>
-                    <input type="text" name="name"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    @error('name')
+                    <input list="browsers" name="user_id"  class="form-control" id="exampleInputEmail1">
+                    @foreach($datauser as $data)
+                    <datalist id="browsers">
+                          <option value="{{$data->id}}">{{$data->email}}</option>
+                    @endforeach
+                    @error('user_id')
                     <div class="text-danger">
                         {{$message}}
                     </div>
                     @enderror
                 </div>
-                <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Email</label>
-                    <input type="text" name="email"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    @error('email')
-                    <div class="text-danger">
-                        {{$message}}
-                    </div>
-                    @enderror
-                </div>
-                <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Password</label>
-                    <input type="text" name="password"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    @error('password')
-                    <div class="text-danger">
-                        {{$message}}
-                    </div>
-                    @enderror
-                </div>
+                
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>

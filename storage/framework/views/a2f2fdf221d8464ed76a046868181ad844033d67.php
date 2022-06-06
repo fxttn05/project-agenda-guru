@@ -7,11 +7,16 @@
             <h1 class="fw-bolder">Insert Agenda Sekolah</h1>
             <form method="POST" action="<?php echo e(route('insertagenda')); ?>" enctype="multipart/form-data">
                 <?php echo csrf_field(); ?>
+
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Nama Guru</label>
-                    <input type="text" name="namaguru" class="form-control" id="exampleInputEmail1"
-                        aria-describedby="emailHelp">
-                    <?php $__errorArgs = ['namaguru'];
+                    <select class="form-select" name="guru_id">
+                        <option selected>Select Guru</option>
+                        <?php $__currentLoopData = $dataguru; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <option value="<?php echo e($data->id); ?>"><?php echo e($data->guru); ?></option>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    </select>
+                    <?php $__errorArgs = ['guru'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
@@ -25,16 +30,8 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
                 </div>
-                <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Mata Pelajaran</label>
-                    <select class="form-select" name="mapel">
-                        <option selected>Select Mata Pelajaran</option>
-                        <option value="1">RPL</option>
-                        <option value="2">MM</option>
-                        <option value="2">TKJ</option>
-                        <option value="2">BC</option>
-                    </select>
-                </div>
+
+
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Materi</label>
                     <input type="text" name="materi" class="form-control" id="exampleInputEmail1"
@@ -53,6 +50,7 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
                 </div>
+
                 <div class="row">
                     <div class="mb-3 col-5">
                         <label for="exampleInputEmail1" class="form-label">Mulai Jam pelajaran</label>
@@ -67,9 +65,11 @@ unset($__errorArgs, $__bag); ?>
                             <option value="2">jam 7</option>
                         </select>
                     </div>
+
                     <div class="col-1">
                         <p style="text-align: center;">to</p>
                     </div>
+
                     <div class="mb-3 col-6">
                         <label for="exampleInputEmail1" class="form-label">Selesai Mata Pelajaran</label>
                         <select class="form-select" name="jamselesai">
@@ -84,6 +84,7 @@ unset($__errorArgs, $__bag); ?>
                         </select>
                     </div>
                 </div>
+
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Absensi (Jumlah siswa tidak hadir per sesi)</label>
                     <input type="number" name="absensiswa" class="form-control" id="exampleInputEmail1"
@@ -102,10 +103,15 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
                 </div>
+
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Kelas</label>
-                    <input type="text" name="kelas" class="form-control" id="exampleInputEmail1"
-                        aria-describedby="emailHelp">
+                    <select class="form-select" name="kelas_id">
+                        <option selected>Select Kelas</option>
+                        <?php $__currentLoopData = $datakelas; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data3): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <option value="<?php echo e($data3->id); ?>"><?php echo e($data3->kelas); ?></option>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    </select>
                     <?php $__errorArgs = ['kelas'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -120,6 +126,7 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
                 </div>
+
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Mode Pembelajaran</label>
                     <select class="form-select" name="modebelajar">
@@ -128,6 +135,7 @@ unset($__errorArgs, $__bag); ?>
                         <option value="2">offline</option>
                     </select>
                 </div>
+
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Link</label>
                     <input type="text" name="link" class="form-control" id="exampleInputEmail1"
@@ -136,6 +144,7 @@ unset($__errorArgs, $__bag); ?>
                         <p>*Opsional</p>
                     </div>
                 </div>
+
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Foto Dokumentasi</label>
                     <input type="file" name="foto" class="form-control" id="exampleInputEmail1"
@@ -154,6 +163,7 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
                 </div>
+
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">keterangan</label>
                     <input type="text" name="keterangan" class="form-control" id="exampleInputEmail1"
@@ -162,6 +172,7 @@ unset($__errorArgs, $__bag); ?>
                         <p>*Opsional</p>
                     </div>
                 </div>
+
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
