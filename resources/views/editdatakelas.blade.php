@@ -18,18 +18,14 @@
                     @enderror
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Wali Kelas</label>
-                    <select class="form-select" name="guru_id" value="">
-                        @foreach ($dataguru as $item)
-                        <option value="{{$item->id}}" selected>{{$item->kelas}}</option>
+                    <label for="exampleInputEmail1" class="form-label">Mata Pelajaran</label>
+                    <select class="form-select" name="mapel_id">
+                        <option selected>Ubah Mata pelajaran</option>
+                        @foreach ($datamapel as $item)
+                            <option value="{{$item->id}}">{{$item->mapel}}</option>
                         @endforeach
                     </select>
-                    @error('guru')
-                    <div class="text-danger">
-                        {{$message}}
-                    </div>
-                    @enderror
-                </div>
+                  </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
