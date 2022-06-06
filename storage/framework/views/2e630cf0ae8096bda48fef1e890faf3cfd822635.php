@@ -45,7 +45,7 @@ unset($__errorArgs, $__bag); ?>
 
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Mata Pelajaran</label>
-                    <select class="form-select" name="mapel">
+                    <select class="form-select" name="mapel_id">
                       <option selected>Select Mata Pelajaran</option>
                       <?php $__currentLoopData = $datamapel; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                       <option value="<?php echo e($data->id); ?>"><?php echo e($data->mapel); ?></option>
@@ -87,6 +87,7 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
                 </div>
+
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>

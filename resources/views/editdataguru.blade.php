@@ -8,18 +8,20 @@
             <form method="POST" action="/updateguru/{{$data->id}}">
             @csrf
             @method('put')
+
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Nama Guru</label>
-                <input type="text" name="namaguru" value="{{$data->namaguru}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="text" name="namaguru" value="{{$data->guru}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                 @error('namaguru')
                     <div class="text-danger">
                         {{$message}}
                     </div>
                 @enderror
             </div>
+
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">NIK Guru</label>
-                <input type="text" name="nikguru" value="{{$data->nikguru}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="text" name="nikguru" value="{{$data->nik}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                 @error('nikguru')
                 <div class="text-danger">
                     {{$message}}
@@ -28,36 +30,22 @@
             </div>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Mata Pelajaran</label>
-                <select class="form-select" name="mapel">
-                  <option selected>{{$data->mapel}}</option>
-                  <option value="1">RPL</option>
-                  <option value="2">MM</option>
-                  <option value="2">TKJ</option>
-                  <option value="2">BC</option>
+                <select class="form-select" name="mapel_id">
+                    <option selected>Ubah Mata pelajaran</option>
+                    @foreach ($datamapel as $item)
+                        <option value="{{$item->id}}">{{$item->mapel}}</option>
+                    @endforeach
                 </select>
               </div>
+            
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Username</label>
-                <input type="text" name="name" value="{{$data->name}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                @error('name')
-                <div class="text-danger">
-                    {{$message}}
-                </div>
-                @enderror
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email</label>
-                <input type="text" name="email" value="{{$data->email}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                @error('email')
-                <div class="text-danger">
-                    {{$message}}
-                </div>
-                @enderror
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Password</label>
-                <input type="text" name="password" value="{{$data->password}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                @error('password')
+                    <input list="browsers" name="user_id"  class="form-control" id="exampleInputEmail1">
+                    @foreach($datauser as $data)
+                    <datalist id="browsers">
+                          <option value="{{$data->id}}">{{$data->email}}</option>
+                    @endforeach
+                @error('user_id')
                 <div class="text-danger">
                     {{$message}}
                 </div>

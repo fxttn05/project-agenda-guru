@@ -41,7 +41,9 @@ class GuruController extends Controller
 
     public function tampilan($id){
         $data = Guru::find($id);
-        return view('editdataguru', compact('data'), ["title" => "Edit Data Guru"]);
+        $datamapel = Mapel::all();
+        $datauser = User::all();
+        return view('editdataguru', compact('data', 'datamapel', 'datauser'), ["title" => "Edit Data Guru"]);
     }
 
     public function update(Request $request, $id){

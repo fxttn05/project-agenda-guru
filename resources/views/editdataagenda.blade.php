@@ -5,13 +5,12 @@
     <div class="card col-9 mt-3 rounded-3">
         <div class="card-body">
             <h1 class="fw-bolder">Edit Agenda Sekolah</h1>
-            <form method="POST" action="/updateagenda/{{$datas->id}}" enctype="multipart/form-data">
+            <form method="POST" action="/updateagenda/{{$data->id}}" enctype="multipart/form-data">
                 @csrf
                 @method('put')
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Nama Guru</label>
-                    <select class="form-select" name="guru_id" value="{{$data->materi}}">
-                        <option selected>Select Guru</option>
+                    <select class="form-select" name="guru_id" value="">
                         @foreach($dataguru as $data2)
                             <option value="{{$data2->id}}">{{$data2->guru}}</option>
                         @endforeach
@@ -25,7 +24,7 @@
 
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Materi</label>
-                    <input type="text" name="materi" value="{{$datas->materi}}" class="form-control"
+                    <input type="text" name="materi" value="{{$data->materi}}" class="form-control"
                         id="exampleInputEmail1" aria-describedby="emailHelp">
                     @error('materi')
                     <div class="text-danger">
@@ -38,7 +37,7 @@
                     <div class="mb-3 col-5">
                         <label for="exampleInputEmail1" class="form-label">Mulai Jam pelajaran</label>
                         <select class="form-select" name="jammulai">
-                            <option selected>{{$datas->jammulai}}</option>
+                            <option selected>{{$data->jammulai}}</option>
                             <option value="1">jam 1</option>
                             <option value="2">jam 2</option>
                             <option value="2">jam 3</option>
@@ -54,7 +53,7 @@
                     <div class="mb-3 col-6">
                         <label for="exampleInputEmail1" class="form-label">Selesai Mata Pelajaran</label>
                         <select class="form-select" name="jamselesai">
-                            <option selected>{{$datas->jamselesai}}</option>
+                            <option selected>{{$data->jamselesai}}</option>
                             <option value="1">jam 2</option>
                             <option value="2">jam 3</option>
                             <option value="2">jam 4</option>
@@ -66,18 +65,7 @@
                     </div>
                 </div>
 
-                <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Absensi (Jumlah siswa tidak hadir per
-                        sesi)</label>
-                    <input type="number" name="absensiswa" value="{{$datas->absensiswa}}" class="form-control"
-                        id="exampleInputEmail1" aria-describedby="emailHelp">
-                    @error('absensiswa')
-                    <div class="text-danger">
-                        {{$message}}
-                    </div>
-                    @enderror
-                </div>
-
+                
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Kelas</label>
                     <select class="form-select" name="kelas_id" value="">
@@ -95,7 +83,7 @@
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Mode Pembelajaran</label>
                     <select class="form-select" name="modebelajar" value="{{$data->modebelajar}}">
-                        <option selected>{{$datas->modebelajar}}</option>
+                        <option selected>{{$data->modebelajar}}</option>
                         <option value="1">online</option>
                         <option value="2">offline</option>
                     </select>
@@ -103,7 +91,7 @@
 
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Link</label>
-                    <input type="text" name="link" value="{{$datas->link}}" class="form-control" id="exampleInputEmail1"
+                    <input type="text" name="link" value="{{$data->link}}" class="form-control" id="exampleInputEmail1"
                         aria-describedby="emailHelp">
                     <div class="text-danger">
                         <p>*Opsional</p>
@@ -112,7 +100,7 @@
 
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Foto Dokumentasi</label>
-                    <input type="file" name="foto" value="{{$datas->foto}}" class="form-control" id="exampleInputEmail1"
+                    <input type="file" name="foto" value="{{$data->foto}}" class="form-control" id="exampleInputEmail1"
                         aria-describedby="emailHelp">
                     @error('foto')
                     <div class="text-danger">
@@ -120,10 +108,22 @@
                     </div>
                     @enderror
                 </div>
-
+                
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Absensi (Jumlah siswa tidak hadir per
+                        sesi)</label>
+                    <input type="number" name="absensiswa" value="{{$data->absensiswa}}" class="form-control"
+                        id="exampleInputEmail1" aria-describedby="emailHelp">
+                    @error('absensiswa')
+                    <div class="text-danger">
+                        {{$message}}
+                    </div>
+                    @enderror
+                </div>
+                
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">keterangan</label>
-                    <input type="text" name="keterangan" value="{{$datas->keterangan}}" class="form-control"
+                    <input type="text" name="keterangan" value="{{$data->keterangan}}" class="form-control"
                         id="exampleInputEmail1" aria-describedby="emailHelp">
                     <div class="text-danger">
                         <p>*Opsional</p>

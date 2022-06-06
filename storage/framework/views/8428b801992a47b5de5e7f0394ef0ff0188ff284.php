@@ -5,13 +5,12 @@
     <div class="card col-9 mt-3 rounded-3">
         <div class="card-body">
             <h1 class="fw-bolder">Edit Agenda Sekolah</h1>
-            <form method="POST" action="/updateagenda/<?php echo e($datas->id); ?>" enctype="multipart/form-data">
+            <form method="POST" action="/updateagenda/<?php echo e($data->id); ?>" enctype="multipart/form-data">
                 <?php echo csrf_field(); ?>
                 <?php echo method_field('put'); ?>
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Nama Guru</label>
-                    <select class="form-select" name="guru_id" value="<?php echo e($data->materi); ?>">
-                        <option selected>Select Guru</option>
+                    <select class="form-select" name="guru_id" value="">
                         <?php $__currentLoopData = $dataguru; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data2): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <option value="<?php echo e($data2->id); ?>"><?php echo e($data2->guru); ?></option>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -33,7 +32,7 @@ unset($__errorArgs, $__bag); ?>
 
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Materi</label>
-                    <input type="text" name="materi" value="<?php echo e($datas->materi); ?>" class="form-control"
+                    <input type="text" name="materi" value="<?php echo e($data->materi); ?>" class="form-control"
                         id="exampleInputEmail1" aria-describedby="emailHelp">
                     <?php $__errorArgs = ['materi'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -54,7 +53,7 @@ unset($__errorArgs, $__bag); ?>
                     <div class="mb-3 col-5">
                         <label for="exampleInputEmail1" class="form-label">Mulai Jam pelajaran</label>
                         <select class="form-select" name="jammulai">
-                            <option selected><?php echo e($datas->jammulai); ?></option>
+                            <option selected><?php echo e($data->jammulai); ?></option>
                             <option value="1">jam 1</option>
                             <option value="2">jam 2</option>
                             <option value="2">jam 3</option>
@@ -70,7 +69,7 @@ unset($__errorArgs, $__bag); ?>
                     <div class="mb-3 col-6">
                         <label for="exampleInputEmail1" class="form-label">Selesai Mata Pelajaran</label>
                         <select class="form-select" name="jamselesai">
-                            <option selected><?php echo e($datas->jamselesai); ?></option>
+                            <option selected><?php echo e($data->jamselesai); ?></option>
                             <option value="1">jam 2</option>
                             <option value="2">jam 3</option>
                             <option value="2">jam 4</option>
@@ -85,7 +84,7 @@ unset($__errorArgs, $__bag); ?>
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Absensi (Jumlah siswa tidak hadir per
                         sesi)</label>
-                    <input type="number" name="absensiswa" value="<?php echo e($datas->absensiswa); ?>" class="form-control"
+                    <input type="number" name="absensiswa" value="<?php echo e($data->absensiswa); ?>" class="form-control"
                         id="exampleInputEmail1" aria-describedby="emailHelp">
                     <?php $__errorArgs = ['absensiswa'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -127,7 +126,7 @@ unset($__errorArgs, $__bag); ?>
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Mode Pembelajaran</label>
                     <select class="form-select" name="modebelajar" value="<?php echo e($data->modebelajar); ?>">
-                        <option selected><?php echo e($datas->modebelajar); ?></option>
+                        <option selected><?php echo e($data->modebelajar); ?></option>
                         <option value="1">online</option>
                         <option value="2">offline</option>
                     </select>
@@ -135,7 +134,7 @@ unset($__errorArgs, $__bag); ?>
 
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Link</label>
-                    <input type="text" name="link" value="<?php echo e($datas->link); ?>" class="form-control" id="exampleInputEmail1"
+                    <input type="text" name="link" value="<?php echo e($data->link); ?>" class="form-control" id="exampleInputEmail1"
                         aria-describedby="emailHelp">
                     <div class="text-danger">
                         <p>*Opsional</p>
@@ -144,7 +143,7 @@ unset($__errorArgs, $__bag); ?>
 
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Foto Dokumentasi</label>
-                    <input type="file" name="foto" value="<?php echo e($datas->foto); ?>" class="form-control" id="exampleInputEmail1"
+                    <input type="file" name="foto" value="<?php echo e($data->foto); ?>" class="form-control" id="exampleInputEmail1"
                         aria-describedby="emailHelp">
                     <?php $__errorArgs = ['foto'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -163,7 +162,7 @@ unset($__errorArgs, $__bag); ?>
 
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">keterangan</label>
-                    <input type="text" name="keterangan" value="<?php echo e($datas->keterangan); ?>" class="form-control"
+                    <input type="text" name="keterangan" value="<?php echo e($data->keterangan); ?>" class="form-control"
                         id="exampleInputEmail1" aria-describedby="emailHelp">
                     <div class="text-danger">
                         <p>*Opsional</p>

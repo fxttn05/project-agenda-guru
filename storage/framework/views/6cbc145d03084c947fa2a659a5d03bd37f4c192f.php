@@ -8,9 +8,10 @@
             <form method="POST" action="/updateguru/<?php echo e($data->id); ?>">
             <?php echo csrf_field(); ?>
             <?php echo method_field('put'); ?>
+
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Nama Guru</label>
-                <input type="text" name="namaguru" value="<?php echo e($data->namaguru); ?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="text" name="namaguru" value="<?php echo e($data->guru); ?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                 <?php $__errorArgs = ['namaguru'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -25,9 +26,10 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
             </div>
+
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">NIK Guru</label>
-                <input type="text" name="nikguru" value="<?php echo e($data->nikguru); ?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="text" name="nikguru" value="<?php echo e($data->nik); ?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                 <?php $__errorArgs = ['nikguru'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -44,52 +46,22 @@ unset($__errorArgs, $__bag); ?>
             </div>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Mata Pelajaran</label>
-                <select class="form-select" name="mapel">
-                  <option selected><?php echo e($data->mapel); ?></option>
-                  <option value="1">RPL</option>
-                  <option value="2">MM</option>
-                  <option value="2">TKJ</option>
-                  <option value="2">BC</option>
+                <select class="form-select" name="mapel_id">
+                    <option selected>Ubah Mata pelajaran</option>
+                    <?php $__currentLoopData = $datamapel; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <option value="<?php echo e($item->id); ?>"><?php echo e($item->mapel); ?></option>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </select>
               </div>
+            
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Username</label>
-                <input type="text" name="name" value="<?php echo e($data->name); ?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                <?php $__errorArgs = ['name'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?>
-                <div class="text-danger">
-                    <?php echo e($message); ?>
-
-                </div>
-                <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email</label>
-                <input type="text" name="email" value="<?php echo e($data->email); ?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                <?php $__errorArgs = ['email'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?>
-                <div class="text-danger">
-                    <?php echo e($message); ?>
-
-                </div>
-                <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Password</label>
-                <input type="text" name="password" value="<?php echo e($data->password); ?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                <?php $__errorArgs = ['password'];
+                    <input list="browsers" name="user_id"  class="form-control" id="exampleInputEmail1">
+                    <?php $__currentLoopData = $datauser; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <datalist id="browsers">
+                          <option value="<?php echo e($data->id); ?>"><?php echo e($data->email); ?></option>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                <?php $__errorArgs = ['user_id'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }

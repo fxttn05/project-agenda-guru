@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\File;
 class AgendaController extends Controller
 {
     public function agenda(){
-        $data = Agenda::select('agendas.*', 'gurus.*', 'kelas.*', 'mapels.*')
+        $data = Agenda::select('agendas.*', 'gurus.*', 'kelas.*', 'mapels.*', 'agendas.id as id_agenda')
 		->leftJoin('gurus', 'agendas.guru_id', 'gurus.id')
 		->leftJoin('kelas', 'kelas.id', 'agendas.kelas_id')
 		->leftJoin('mapels', 'mapels.id', 'gurus.mapel_id')
@@ -60,11 +60,11 @@ class AgendaController extends Controller
     public function tampilan($id){
 
 
-        $datas = Agenda::find($id);
+        $data = Agenda::find($id);
         $dataguru = Guru::all();
         $datamapel = Mapel::all();
         $datakelas = Kelas::all();
-        return view('editdataagenda', compact('datas', 'dataguru', 'datamapel', 'datakelas'), ["title" => "Edit Data Agenda"]);
+        return view('editdataagenda', compact('data', 'dataguru', 'datamapel', 'datakelas'), ["title" => "Edit Data Agenda"]);
     }
 
     public function update(Request $request, $id){

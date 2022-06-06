@@ -58,7 +58,7 @@ Route::post('/insertagenda', [AgendaController::class, 'store'])->name('insertag
 Route::get('/editagenda/{id}', [AgendaController::class, 'tampilan'])->name('editagenda');
 Route::put('/updateagenda/{id}', [AgendaController::class, 'update'])->name('updateagenda');
 
-Route::get('/deleteagenda/{id}', [AgendaController::class, 'destroy'])->name('deleteagenda');
+Route::delete('/deleteagenda/{id}', [AgendaController::class, 'destroy'])->name('deleteagenda');
 
 //mapel
 Route::get('/mapel', [MapelController::class, 'mapel'])->name('mapel');

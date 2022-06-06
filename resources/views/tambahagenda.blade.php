@@ -69,23 +69,13 @@
                     </div>
                 </div>
 
-                <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Absensi (Jumlah siswa tidak hadir per sesi)</label>
-                    <input type="number" name="absensiswa" class="form-control" id="exampleInputEmail1"
-                        aria-describedby="emailHelp">
-                    @error('absensiswa')
-                    <div class="text-danger">
-                        {{$message}}
-                    </div>
-                    @enderror
-                </div>
-
+                
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Kelas</label>
                     <select class="form-select" name="kelas_id">
                         <option selected>Select Kelas</option>
                         @foreach($datakelas as $data3)
-                            <option value="{{$data3->id}}">{{$data3->kelas}}</option>
+                        <option value="{{$data3->id}}">{{$data3->kelas}}</option>
                         @endforeach
                     </select>
                     @error('kelas')
@@ -94,7 +84,7 @@
                     </div>
                     @enderror
                 </div>
-
+                
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Mode Pembelajaran</label>
                     <select class="form-select" name="modebelajar">
@@ -112,7 +102,7 @@
                         <p>*Opsional</p>
                     </div>
                 </div>
-
+                
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Foto Dokumentasi</label>
                     <input type="file" name="foto" class="form-control" id="exampleInputEmail1"
@@ -124,6 +114,17 @@
                     @enderror
                 </div>
 
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Absensi (Jumlah siswa tidak hadir per sesi)</label>
+                    <input type="number" name="absensiswa" class="form-control" id="exampleInputEmail1"
+                        aria-describedby="emailHelp">
+                    @error('absensiswa')
+                    <div class="text-danger">
+                        {{$message}}
+                    </div>
+                    @enderror
+                </div>
+                
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">keterangan</label>
                     <input type="text" name="keterangan" class="form-control" id="exampleInputEmail1"
