@@ -25,12 +25,12 @@
                 <td><?php echo e($row->kelas); ?></td>
                 <td><?php echo e($row->guru); ?></td>
                 <td class="d-flex">
-                  <form action="/deletekelas/<?php echo e($row->id); ?>" method="POST">
+                  <form action="/deletekelas/<?php echo e($row->id_kelas); ?>" method="POST">
                     <?php echo csrf_field(); ?>
                     <?php echo method_field('delete'); ?>
                     <button type="submit" class="btn btn-danger me-2">Delete</button>
                     </form>
-                  <a href="/editkelas/<?php echo e($row->id); ?>" type="button" class="btn btn-primary">Edit</a>
+                  <a href="/editkelas/<?php echo e($row->id_kelas); ?>" type="button" class="btn btn-primary">Edit</a>
                 </td>
               </tr>
               <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

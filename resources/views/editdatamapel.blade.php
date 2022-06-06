@@ -4,7 +4,7 @@
 <div class="row justify-content-center">
     <div class="card col-9 mt-3 rounded-3">
         <div class="card-body">
-            <h1 class="fw-bolder">Edit Kelas</h1>
+            <h1 class="fw-bolder">Edit Mapel</h1>
             <form method="POST" action="/updatemapel/{{$data->id}}">
             @csrf
             @method('put')

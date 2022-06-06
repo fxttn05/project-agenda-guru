@@ -5,7 +5,7 @@
     <div class="card col-9 mt-3 rounded-3">
         <div class="card-body">
             <h1 class="fw-bolder">Edit Kelas</h1>
-            <form method="POST" action="/updatekelas/<?php echo e($data->id); ?>">
+            <form method="POST" action="/updatekelas/<?php echo e($data->id_kelas); ?>">
             <?php echo csrf_field(); ?>
             <?php echo method_field('put'); ?>
                 <div class="mb-3">
@@ -27,8 +27,12 @@ unset($__errorArgs, $__bag); ?>
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Wali Kelas</label>
-                    <input type="text" name="walikelas" value="<?php echo e($data->walikelas); ?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    <?php $__errorArgs = ['walikelas'];
+                    <select class="form-select" name="guru_id" value="">
+                        <?php $__currentLoopData = $dataguru; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <option value="<?php echo e($item->id); ?>" selected><?php echo e($item->kelas); ?></option>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    </select>
+                    <?php $__errorArgs = ['guru'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }

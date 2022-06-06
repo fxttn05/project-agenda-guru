@@ -5,7 +5,7 @@
     <div class="card col-9 mt-3 rounded-3">
         <div class="card-body">
             <h1 class="fw-bolder">Edit Kelas</h1>
-            <form method="POST" action="/updatekelas/{{$data->id}}">
+            <form method="POST" action="/updatekelas/{{$data->id_kelas}}">
             @csrf
             @method('put')
                 <div class="mb-3">

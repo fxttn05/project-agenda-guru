@@ -25,12 +25,12 @@
                 <td>{{$row->kelas}}</td>
                 <td>{{$row->guru}}</td>
                 <td class="d-flex">
-                  <form action="/deletekelas/{{$row->id}}" method="POST">
+                  <form action="/deletekelas/{{$row->id_kelas}}" method="POST">
                     @csrf
                     @method('delete')
                     <button type="submit" class="btn btn-danger me-2">Delete</button>
                     </form>
-                  <a href="/editkelas/{{$row->id}}" type="button" class="btn btn-primary">Edit</a>
+                  <a href="/editkelas/{{$row->id_kelas}}" type="button" class="btn btn-primary">Edit</a>
                 </td>
               </tr>
               @endforeach
