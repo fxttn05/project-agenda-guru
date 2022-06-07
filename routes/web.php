@@ -2,12 +2,13 @@
 
 use App\Models\Guru;
 use App\Models\Kelas;
+use App\Models\Mapel;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\KelasController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MapelController;
 use App\Http\Controllers\AgendaController;
-use App\Models\Mapel;
 
 /*
 |--------------------------------------------------------------------------
@@ -70,3 +71,12 @@ Route::get('/editmapel/{id}', [MapelController::class, 'tampilan'])->name('editm
 Route::put('/updatemapel/{id}', [MapelController::class, 'update'])->name('updatemapel');
 
 Route::delete('/deletemapel/{id}', [MapelController::class, 'destroy'])->name('deletemapel');
+
+// login register
+Route::get('/login', [LoginController::class, 'login'])->name('login');
+Route::get('/loginadmin', [LoginController::class, 'loginadmin'])->name('loginadmin');
+Route::get('/register', [LoginController::class, 'register'])->name('register');
+
+Route::post('/registeruser', [LoginController::class, 'registeruser'])->name('registeruser');
+Route::post('/loginadmin', [LoginController::class, 'loginadminpost'])->name('loginadmin');
+Route::post('/loginproses', [LoginController::class, 'loginproses'])->name('loginproses');

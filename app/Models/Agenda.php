@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Agenda extends Model
 {
     use HasFactory;
-    protected $guarded = [];
+    protected $guarded = ['id'];
     public $timestamps = false;
 
     public function guruagenda(){

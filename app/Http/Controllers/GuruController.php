@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class GuruController extends Controller
 {
     public function guru(){
-        $data = Guru::with('userguru','mapelguru')->paginate(5) ;
+        $data = Guru::with('userguru','mapelguru')->paginate(5);
 
         return view('guru', [
             'title' => 'Data Guru',
