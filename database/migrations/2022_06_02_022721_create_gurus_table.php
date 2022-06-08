@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('guru');
             $table->string('mapel_id'); // ngambil data mapel
-            $table->string('nik')->unique();
+            $table->string('nik');
             $table->foreignId('user_id'); // ngambil data username(email), password
             $table->timestamps();
         });

@@ -42,11 +42,13 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
+            <?php if(auth()->user()->role == 'admin'): ?>
             <li class="nav-item active">
                 <a class="nav-link" href="/">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
+            <?php endif; ?>
 
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -57,9 +59,10 @@
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
+            <?php if(auth()->user()->role == 'admin'): ?>
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                    aria-expanded="true" aria-controls="collapsePages">
+                aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Admin Tool</span>
                 </a>
@@ -72,13 +75,13 @@
                         <a class="collapse-item" href="/mapel">Mapel</a>
                         <div class="collapse-divider"></div>
                         <h6 class="collapse-header">Other:</h6>
-                        <a class="collapse-item" href="404.html">Register user</a>
                         <a class="collapse-item" href="/tambahagenda">Add data agenda</a>
                     </div>
                 </div>
             </li>
-
-
+            <?php endif; ?>
+            
+            
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
@@ -208,7 +211,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Yakin dek?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
@@ -216,7 +219,7 @@
                 <div class="modal-body">Logout?</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="/login">Logout</a>
+                    <a class="btn btn-primary" href="/logout">Logout</a>
                 </div>
             </div>
         </div>

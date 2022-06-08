@@ -19,10 +19,10 @@
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Mata Pelajaran</label>
-                    <select class="form-select" name="mapel_id">
+                    <select class="form-select" name="guru_id">
                         <option selected>Ubah Mata pelajaran</option>
-                        @foreach ($datamapel as $item)
-                            <option value="{{$item->id}}">{{$item->mapel}}</option>
+                        @foreach ($dataguru as $item)
+                            <option value="{{$item->id}}">{{$item->guru}}</option>
                         @endforeach
                     </select>
                   </div>

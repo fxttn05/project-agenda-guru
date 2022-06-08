@@ -12,6 +12,8 @@ return array(
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\GuruController' => $baseDir . '/app/Http/Controllers/GuruController.php',
     'App\\Http\\Controllers\\KelasController' => $baseDir . '/app/Http/Controllers/KelasController.php',
+    'App\\Http\\Controllers\\LinkedController' => $baseDir . '/app/Http/Controllers/LinkedController.php',
+    'App\\Http\\Controllers\\LoginController' => $baseDir . '/app/Http/Controllers/LoginController.php',
     'App\\Http\\Controllers\\MapelController' => $baseDir . '/app/Http/Controllers/MapelController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',

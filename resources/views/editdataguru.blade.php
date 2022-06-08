@@ -28,6 +28,7 @@
                 </div>
                 @enderror
             </div>
+            
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Mata Pelajaran</label>
                 <select class="form-select" name="mapel_id">
@@ -36,7 +37,7 @@
                         <option value="{{$item->id}}">{{$item->mapel}}</option>
                     @endforeach
                 </select>
-              </div>
+            </div>
             
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Username</label>

@@ -58,8 +58,6 @@ class AgendaController extends Controller
     }
 
     public function tampilan($id){
-
-
         $data = Agenda::find($id);
         $dataguru = Guru::all();
         $datamapel = Mapel::all();

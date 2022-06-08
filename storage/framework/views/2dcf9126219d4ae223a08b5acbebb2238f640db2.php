@@ -14,7 +14,6 @@
                 <th scope="col">NIK Guru</th>
                 <th scope="col">MaPel</th>
                 <th scope="col">Username</th>
-                <th scope="col">Password</th>
                 <th scope="col">Action</th>
               </tr>
             </thead>
@@ -29,7 +28,6 @@
                 <td><?php echo e($row->nik); ?></td>
                 <td><?php echo e($row->mapelguru->mapel); ?></td>
                 <td><?php echo e($row->userguru->email); ?></td>
-                <td><?php echo e($row->userguru->password); ?></td>
                 <td class="d-flex">
                   <form action="/deleteguru/<?php echo e($row->id); ?>" method="POST">
                     <?php echo csrf_field(); ?>

@@ -13,19 +13,22 @@ class LoginController extends Controller
         return view('login.login', ["title" => "Login"]);
     }
 
-    public function loginadmin(){
-        return view('login.loginadmin', ["title" => "Login"]);
-    }
-
+    
     public function loginproses(Request $request){
         // $user = User::where('email', $request->email)->get()[0];
         // $user && Hash::check($request->password, $user->password;
         if(Auth::attempt($request->only('email','password'))){
             return redirect('/');
         }
-
+        
         return redirect('login');
+        
+    }
 
+    
+
+    public function loginadmin(){
+        return view('login.loginadmin', ["title" => "Login"]);
     }
 
     public function loginadminproses(Request $request){
@@ -39,6 +42,8 @@ class LoginController extends Controller
 
     }
 
+
+
     public function register(){
         return view ('login.register', ["title" => "Register"]);
     }
@@ -51,6 +56,12 @@ class LoginController extends Controller
             'remember_token' => Str::random(60)
         ]);
 
+        return redirect('/login');
+    }
+
+
+    public function logout(){
+        Auth::logout();
         return redirect('/login');
     }
 }

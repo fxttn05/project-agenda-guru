@@ -3,6 +3,7 @@
 <?php $__env->startSection('content'); ?>
 <!-- Content Row -->
 <div class="row">
+    <?php if(auth()->user()->role == 'admin'): ?>
 
     <!-- data Mapel -->
     <div class="col-lg-4 col-md-8 mb-2">
@@ -95,10 +96,12 @@
             </div>
         </div>
     </div>
+    <?php endif; ?>
 
 </div>
 
 <div class="row">
+    <?php if(auth()->user()->role == 'admin'): ?>
     <div class="col-lg-4 col-md-8 mb-2">
         <div class="card border-left-danger shadow h-100 py-2">
             <div class="card-body">
@@ -115,9 +118,29 @@
             </div>
         </div>
     </div>
+    <?php endif; ?>
+    <?php if(auth()->user()->role == 'user'): ?>
+    <div class="col-lg-4 col-md-8 mb-2">
+        <div class="card border-left-danger shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                            Agenda</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">Controlled by <?php echo e(Auth::user()->name); ?></div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php endif; ?>
 </div>
 
 <div class="row">
+    <?php if(auth()->user()->role == 'admin'): ?>
     <div class="col-lg-4 mb-4">
         <div class="card bg-danger text-white shadow">
             <div class="card-body ">
@@ -125,6 +148,16 @@
             </div>
         </div>
     </div>
+    <?php endif; ?>
+    <?php if(auth()->user()->role == 'user'): ?>
+    <div class="col-lg-4 mb-4">
+        <div class="card bg-danger text-white shadow">
+            <div class="card-body ">
+                <a href="/guruview" class="text-white">Agenda<i class="fa fa-arrow-circle-right ms-2" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </div>
+    <?php endif; ?>
 </div>
 
 
