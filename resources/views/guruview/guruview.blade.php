@@ -137,7 +137,7 @@
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
-        @if (auth()->user()->role == 'user')
+        
            <div class="card-body overflow-auto">
                <h2>Agenda Sekolah</h2>
                <a href="/tambahagenda" type="button" class="btn btn-success">Tambah Data</a>
@@ -156,7 +156,6 @@
                            <th scope="col">Foto</th>
                            <th scope="col">Abs</th>
                            <th scope="col">Keterangan</th>
-                           <th scope="col">Action</th>
                        </tr>
                    </thead>
                    <tbody>
@@ -180,21 +179,14 @@
                            </td>
                            <td>{{$row->absensiswa}}</td>
                            <td>{{$row->keterangan}}</td>
-                           <td class="">
-                               <form action="/deleteagenda/{{$row->id_agenda}}" method="post">
-                                   @csrf
-                                   @method('delete')
-                                   <button type="submit" style="background: transparent; border: none;"><img
-                                           src="https://img.icons8.com/external-vitaliy-gorbachev-fill-vitaly-gorbachev/16/undefined/external-bin-mother-earth-day-vitaliy-gorbachev-fill-vitaly-gorbachev-1.png" /></button>
-                               </form>
-                           </td>
+                           
                        </tr>
                        @endforeach
                    </tbody>
                </table>
                {{ $data->links() }}
            </div>
-        @endif
+        
       
     </div>
 </div>

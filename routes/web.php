@@ -29,7 +29,7 @@ Route::get('/', function () {
     return view('index', ["title" => "Home"], compact('jumlahguru', 'jumlahkelas', 'jumlahmapel'));
 })->middleware('auth');
 
-Route::group(['middleware' =>['auth', 'hakakses:user']], function(){
+Route::group(['middleware' =>['auth', 'hakakses:admin, user']], function(){
     Route::get('/guruview', [GuruviewController::class, 'guruview'])->name('guruview')->middleware('auth');
 });
 
