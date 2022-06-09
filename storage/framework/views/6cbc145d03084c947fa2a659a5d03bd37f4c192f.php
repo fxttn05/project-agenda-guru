@@ -44,6 +44,7 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
             </div>
+            
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Mata Pelajaran</label>
                 <select class="form-select" name="mapel_id">
@@ -52,7 +53,7 @@ unset($__errorArgs, $__bag); ?>
                         <option value="<?php echo e($item->id); ?>"><?php echo e($item->mapel); ?></option>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </select>
-              </div>
+            </div>
             
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Username</label>
