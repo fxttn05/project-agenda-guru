@@ -58,11 +58,11 @@ unset($__errorArgs, $__bag); ?>
                             <option selected>Select jam Pelajaran</option>
                             <option value="1">jam 1</option>
                             <option value="2">jam 2</option>
-                            <option value="2">jam 3</option>
-                            <option value="2">jam 4</option>
-                            <option value="2">jam 5</option>
-                            <option value="2">jam 6</option>
-                            <option value="2">jam 7</option>
+                            <option value="3">jam 3</option>
+                            <option value="4">jam 4</option>
+                            <option value="5">jam 5</option>
+                            <option value="6">jam 6</option>
+                            <option value="7">jam 7</option>
                         </select>
                     </div>
 
@@ -76,11 +76,11 @@ unset($__errorArgs, $__bag); ?>
                             <option selected>Select Jam Pelajaran</option>
                             <option value="1">jam 2</option>
                             <option value="2">jam 3</option>
-                            <option value="2">jam 4</option>
-                            <option value="2">jam 5</option>
-                            <option value="2">jam 6</option>
-                            <option value="2">jam 7</option>
-                            <option value="2">jam 8</option>
+                            <option value="3">jam 4</option>
+                            <option value="4">jam 5</option>
+                            <option value="5">jam 6</option>
+                            <option value="6">jam 7</option>
+                            <option value="7">jam 8</option>
                         </select>
                     </div>
                 </div>
