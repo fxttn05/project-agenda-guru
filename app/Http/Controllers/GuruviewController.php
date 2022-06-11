@@ -25,15 +25,15 @@ class GuruviewController extends Controller
     }
 
     public function create(){
-        $guru = Guru::all();
-        $mapel = Mapel::all();
-        $kelas = Kelas::all();
+        $dataguru = Guru::all();
+        $datamapel = Mapel::all();
+        $datakelas = Kelas::all();
 
         return view('guruview.tambahguruview', [
             "title" => "Add Data Agenda",
-            'guru' => $guru,
-            'mapel' => $mapel,
-            'kelas' => $kelas
+            'dataguru' => $dataguru,
+            'datamapel' => $datamapel,
+            'datakelas' => $datakelas
         ]);
     }
 
