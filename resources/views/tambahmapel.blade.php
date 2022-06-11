@@ -9,7 +9,7 @@
                 @csrf
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Mapel</label>
-                    <input type="text" name="mapel" class="form-control" id="exampleInputEmail1"
+                    <input type="text" name="mapel" class="form-control" id="exampleInputEmail1" placeholder="Mata Pelajaran"
                         aria-describedby="emailHelp">
                     @error('mapel')
                     <div class="text-danger">

@@ -26,7 +26,7 @@
 
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Materi</label>
-                    <input type="text" name="materi" class="form-control" id="exampleInputEmail1"
+                    <input type="text" name="materi" class="form-control" id="exampleInputEmail1" placeholder="Materi Pembelajaran"
                         aria-describedby="emailHelp">
                     @error('materi')
                     <div class="text-danger">
@@ -39,7 +39,7 @@
                     <div class="mb-3 col-5">
                         <label for="exampleInputEmail1" class="form-label">Mulai Jam pelajaran</label>
                         <select class="form-select" name="jammulai">
-                            <option selected>Select jam Pelajaran</option>
+                            <option selected>Jam Mulai</option>
                             <option value="1">jam 1</option>
                             <option value="2">jam 2</option>
                             <option value="3">jam 3</option>
@@ -57,7 +57,7 @@
                     <div class="mb-3 col-6">
                         <label for="exampleInputEmail1" class="form-label">Selesai Mata Pelajaran</label>
                         <select class="form-select" name="jamselesai">
-                            <option selected>Select Jam Pelajaran</option>
+                            <option selected>Jam Selesai</option>
                             <option value="1">jam 2</option>
                             <option value="2">jam 3</option>
                             <option value="3">jam 4</option>
@@ -96,7 +96,7 @@
 
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Link</label>
-                    <input type="text" name="link" class="form-control" id="exampleInputEmail1"
+                    <input type="text" name="link" class="form-control" id="exampleInputEmail1" placeholder="Link Pembelajaran"
                         aria-describedby="emailHelp">
                     <div class="text-danger">
                         <p>*Opsional</p>
@@ -105,7 +105,7 @@
                 
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Foto Dokumentasi</label>
-                    <input type="file" name="foto" class="form-control" id="exampleInputEmail1"
+                    <input type="file" name="foto" class="form-control" id="exampleInputEmail1" 
                         aria-describedby="emailHelp">
                     @error('foto')
                     <div class="text-danger">
@@ -116,7 +116,7 @@
 
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Absensi (Jumlah siswa tidak hadir per sesi)</label>
-                    <input type="number" name="absensiswa" class="form-control" id="exampleInputEmail1"
+                    <input type="number" name="absensiswa" class="form-control" id="exampleInputEmail1" placeholder="Jumlah Absensi"
                         aria-describedby="emailHelp">
                     @error('absensiswa')
                     <div class="text-danger">
@@ -127,7 +127,7 @@
                 
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">keterangan</label>
-                    <input type="text" name="keterangan" class="form-control" id="exampleInputEmail1"
+                    <input type="textarea" name="keterangan" class="form-control" id="exampleInputEmail1" placeholder="Tambah Keterangan"
                         aria-describedby="emailHelp">
                     <div class="text-danger">
                         <p>*Opsional</p>

@@ -9,7 +9,7 @@
             @csrf
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Kelas</label>
-                    <input type="text" name="kelas"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <input type="text" name="kelas"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nama Kelas">
                     @error('kelas')
                         <div class="text-danger">
                             {{$message}}
@@ -18,8 +18,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Walikelas</label>
-                    <select class="form-select" name="guru_id">
-                        <option selected>Select Guru</option>
+                    <select class="form-select" name="guru_id" placeholder="Wali Kelas">
                         @foreach($dataguru as $data)
                             <option value="{{$data->id}}">{{$data->guru}}</option>
                         @endforeach
